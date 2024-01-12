@@ -1,0 +1,52 @@
+/* Style the table headers */
+th {
+    background-color: #007BFF; /* Deep blue background */
+    color: black; /* White text color */
+    min-width: 100px; /* Minimum width for headers */
+}
+
+/* Style the table rows on hover */
+tr:hover {
+    background-color: #f5f5f5; /* Light grey background on hover */
+}
+
+th, td {
+    padding: 8px; /* Add some padding for better readability */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Make font size responsive */
+@media (max-width: 768px) {
+    th, td {
+        font-size: 0.8em; /* Reduce font size for smaller screens */
+    }
+}
+
+/* Style the "Create New Game" button */
+.create-button {
+    background-color: #28a745; /* Bootstrap success green */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 0.25rem; /* Rounded corners */
+}
+
+/* Style for the cell containing action buttons */
+td.action-cell {
+    vertical-align: bottom; /* Align the content of the cell to the bottom */
+    position: relative; /* Position relative to allow absolute positioning inside */
+}
+
+/* Style the action buttons to align them to the bottom right */
+.action-buttons {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed for spacing from the bottom */
+    right: 10px; /* Adjust as needed for spacing from the right */
+}
+
+/* Style the edit and delete links */
+.edit-link, .delete-link, .view-details {
+    color: #007BFF; /* Blue color for text */
+    text-decoration: none;
+    margin-left: 5px; /* Space between buttons */
+}
