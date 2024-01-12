@@ -1,0 +1,69 @@
+{% load static %} <!-- Add this line at the top of your template -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add Bootstrap CSS and JavaScript links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+    <!-- Add link to your custom CSS file -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>My Games of All Time</title>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="my-5">My Games of All Time</h1>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-borderless table-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th class="small-header-text">Title</th>
+                    <th class="small-header-text">Release Year</th>
+                    <th class="small-header-text">Platform</th>
+                    <th class="small-header-text">Genre</th>
+                    <th class="small-header-text">Rating</th>
+                    <th class="small-header-text">Comments</th>
+                    <th class="small-header-text">Cover Image</th>
+                    <th class="small-header-text">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                <tr>
+                    <td>{{ game.title }}</td>
+                    <td>{{ game.release_year }}</td>
+                    <td>{{ game.platform }}</td>
+                    <td>{{ game.genre }}</td>
+                    <td>{{ game.rating }}</td>
+                    <td>{{ game.comments }}</td>
+                    <td>
+                        {% if game.cover_image %}
+                            <img src="{{ game.cover_image.url }}" alt="{{ game.title }} Cover" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+                        {% else %}
+                            No Image
+                        {% endif %}
+                    </td>
+                    <td class="action-cell">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'game_detail' game.pk %}" type="button" class="btn btn-info btn-sm view-details">View</a>
+                            <a href="{% url 'game_update' game.pk %}" type="button" class="btn btn-primary btn-sm edit-link">Edit</a>
+                            <a href="{% url 'game_delete' game.pk %}" type="button" class="btn btn-danger btn-sm delete-link">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8">No games available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <a href="{% url 'game_create' %}" class="btn btn-success">Create New Game</a>
+    </div>
+</body>
+</html>

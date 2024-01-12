@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ game.title }}</title>
+    <!-- Add Bootstrap CSS Link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="display-4">{{ game.title }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <p class="lead">Release Year: {{ game.release_year }}</p>
+                <p class="lead">Platform: {{ game.platform }}</p>
+                <p class="lead">Genre: {{ game.genre }}</p>
+                <p class="lead">Rating: {{ game.rating }}</p>
+                <p class="lead">Comments: {{ game.comments }}</p>
+            </div>
+        </div>
+        <div class="mt-3">
+            <a class="btn btn-primary" href="{% url 'game_update' game.pk %}">Edit</a>
+            <a class="btn btn-secondary" href="{% url 'game_list' %}">Back to Game List</a>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js (Required for Bootstrap dropdowns and tooltips) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

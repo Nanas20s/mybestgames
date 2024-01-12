@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Game</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Edit Game</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Use Bootstrap form-group and form-control classes -->
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ form.title.value }}">
+            </div>
+            <div class="form-group">
+                <label for="release_year">Release Year</label>
+                <input type="text" class="form-control" id="release_year" name="release_year" value="{{ form.release_year.value }}">
+            </div>
+            <div class="form-group">
+                <label for="platform">Platform</label>
+                <input type="text" class="form-control" id="platform" name="platform" value="{{ form.platform.value }}">
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" name="genre" value="{{ form.genre.value }}">
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="text" class="form-control" id="rating" name="rating" value="{{ form.rating.value }}">
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments</label>
+                <textarea class="form-control" id="comments" name="comments">{{ form.comments.value }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="cover_image">Cover Image</label>
+                <input type="file" class="form-control-file" id="cover_image" name="cover_image">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <a href="{% url 'game_list' %}" class="btn btn-secondary mt-3">Back to Game List</a>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
