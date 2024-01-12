@@ -1,0 +1,2 @@
+# mybestgames
+django project
