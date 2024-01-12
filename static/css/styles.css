@@ -1,0 +1,18 @@
+/* Set the maximum width of the table to 85% of the screen width */
+table {
+    max-width: 85%;
+    border-spacing: 10px;
+    margin: 0 auto; /* 0 for top and bottom, auto for left and right */
+}
+
+
+/* Custom CSS class for smaller text in table header */
+.small-header-text {
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+/* Prevent long table header text from breaking into multiple lines */
+thead th {
+    white-space: nowrap;
+    margin-right: 20px; /* Adjust as needed to increase spacing between cells */
+}
